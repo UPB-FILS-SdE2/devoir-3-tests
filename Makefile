@@ -11,6 +11,7 @@ endef
 install:
 	rm -rf ../Makefile
 	cp Makefile ..
+	rm -rf ../outputs
 	cp -r outputs ..
 	rm -rf ../runner/src/tests.rs
 	cp -r tests ../runner/src/tests
