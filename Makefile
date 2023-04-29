@@ -9,6 +9,7 @@ define banner
 endef
 
 install:
+	rm -rf ../Makefile
 	cp Makefile ..
 	cp -r outputs ..
 	rm -rf ../runner/src/tests.rs
