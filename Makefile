@@ -23,11 +23,10 @@ outputs:
 	SCHEDULER=round-robin WRITE_OUTPUT=true TIMESLICE=5 REMAINING=2 cargo test
 	SCHEDULER=round-robin WRITE_OUTPUT=true TIMESLICE=3 REMAINING=3 cargo test
 
-round-robin:
+round-robin: export TERM = xterm
 ifndef TEST
 	$(error No test defined)
 endif
-	export TERM=xterm
 	$(call banner,Round Robin Timeslice: 3 Remaining: 1)
 	SCHEDULER=round-robin timeout 5 cargo test $(TEST) -q
 	$(call banner,Round Robin Timeslice: 5 Remaining: 2)
