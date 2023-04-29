@@ -1,7 +1,8 @@
 .PHONY: outputs round-robin
 
+export TREM := xterm
+
 define banner
-	@TERM=xterm
 	@printf "\n"
 	@printf "$$(tput bold)********************************************************************************$$(tput sgr0)\n"
 	@string="$(1)" && printf "$$(tput bold)* %-$$((76))s *\n" "$$string"
