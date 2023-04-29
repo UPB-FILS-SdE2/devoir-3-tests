@@ -14,6 +14,6 @@ Syscall Exit, remaining 4 -> Success
 
 ===== Iteration: 3 =====
 Done, no more processes
-PID	STATE		TOTAL	SYSCALL	EXEC UTE
+PID	STATE		TOTAL	SYSCALL	EXECUTE
 
 

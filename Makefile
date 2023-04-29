@@ -1,4 +1,4 @@
-.PHONY: install outputs round-robin
+.PHONY: outputs round-robin
 
 define banner
 	@printf "\n"
@@ -26,8 +26,8 @@ ifndef TEST
 	$(error No test defined)
 endif
 	$(call banner,Round Robin Timeslice: 3 Remaining: 1)
-	SCHEDULER=round-robin cargo test $(TEST) -q
+	SCHEDULER=round-robin timeout 5 cargo test $(TEST) -q
 	$(call banner,Round Robin Timeslice: 5 Remaining: 2)
-	SCHEDULER=round-robin TIMESLICE=5 REMAINING=2 cargo test $(TEST) -q
+	SCHEDULER=round-robin TIMESLICE=5 REMAINING=2 timeout 5 cargo test $(TEST) -q
 	$(call banner,Round Robin Timeslice: 3 Remaining: 3)
-	SCHEDULER=round-robin TIMESLICE=3 REMAINING=3 cargo test $(TEST) -- -q
+	SCHEDULER=round-robin TIMESLICE=3 REMAINING=3 timeout 5 cargo test $(TEST) -- -q
