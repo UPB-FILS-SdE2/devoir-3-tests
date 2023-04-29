@@ -1,6 +1,7 @@
 .PHONY: outputs round-robin
 
 define banner
+	@TERM=xterm
 	@printf "\n"
 	@printf "$$(tput bold)********************************************************************************$$(tput sgr0)\n"
 	@string="$(1)" && printf "$$(tput bold)* %-$$((76))s *\n" "$$string"
@@ -23,7 +24,7 @@ outputs:
 	SCHEDULER=round-robin WRITE_OUTPUT=true TIMESLICE=5 REMAINING=2 cargo test
 	SCHEDULER=round-robin WRITE_OUTPUT=true TIMESLICE=3 REMAINING=3 cargo test
 
-round-robin: export TERM = xterm
+round-robin:
 ifndef TEST
 	$(error No test defined)
 endif
