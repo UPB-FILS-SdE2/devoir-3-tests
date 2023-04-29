@@ -1,4 +1,4 @@
-.PHONY: outputs round-robin
+.PHONY: install outputs round-robin
 
 define banner
 	@printf "\n"
@@ -7,6 +7,12 @@ define banner
 	@printf "$$(tput bold)********************************************************************************$$(tput sgr0)\n"
 	@printf "\n"
 endef
+
+install:
+	cp Makefile ..
+	cp -r outputs ..
+	rm -rf ../runner/src/tests.rs
+	cp -r tests ../runner/src/tests
 
 outputs:
 	rm -rf outputs
