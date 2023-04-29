@@ -4,9 +4,9 @@ export TREM := xterm
 
 define banner
 	@printf "\n"
-	@printf "$$(TERM=xterm tput bold)********************************************************************************$$(tput sgr0)\n"
+	@printf "$$(TERM=xterm tput bold)********************************************************************************$$(TERM=xterm tput sgr0)\n"
 	@string="$(1)" && printf "$$(TERM=xterm tput bold)* %-$$((76))s *\n" "$$string"
-	@printf "$$(TERM=xterm tput bold)********************************************************************************$$(tput sgr0)\n"
+	@printf "$$(TERM=xterm tput bold)********************************************************************************$$(TERM=xterm tput sgr0)\n"
 	@printf "\n"
 endef
 
