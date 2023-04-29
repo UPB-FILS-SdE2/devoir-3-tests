@@ -1,0 +1,199 @@
+===== Iteration: 1 =====
+Run 1 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		0	0	0
+Syscall Fork(0), remaining 4 -> Pid(Pid(2))
+
+
+===== Iteration: 2 =====
+Run 1 for 4 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		1	1	1
+2	READY		0	0	0
+Syscall Fork(0), remaining 3 -> Pid(Pid(3))
+
+
+===== Iteration: 3 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		2	2	2
+2	READY		1	0	0
+3	READY		0	0	0
+Syscall Fork(0), remaining 2 -> Pid(Pid(4))
+
+
+===== Iteration: 4 =====
+Run 1 for 2 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		3	3	3
+2	READY		2	0	0
+3	READY		1	0	0
+4	READY		0	0	0
+Syscall Fork(0), remaining 1 -> Pid(Pid(5))
+
+
+===== Iteration: 5 =====
+Run 2 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	READY		4	4	4
+2	RUNNING		3	0	0
+3	READY		2	0	0
+4	READY		1	0	0
+5	READY		0	0	0
+Syscall Wait(1), remaining 4 -> Success
+
+
+===== Iteration: 6 =====
+Run 3 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	READY		5	4	4
+2	EVENT 1		4	1	1
+3	RUNNING		3	0	0
+4	READY		2	0	0
+5	READY		1	0	0
+Syscall Wait(2), remaining 4 -> Success
+
+
+===== Iteration: 7 =====
+Run 4 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	READY		6	4	4
+2	EVENT 1		5	1	1
+3	EVENT 2		4	1	1
+4	RUNNING		3	0	0
+5	READY		2	0	0
+Syscall Wait(3), remaining 4 -> Success
+
+
+===== Iteration: 8 =====
+Run 5 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	READY		7	4	4
+2	EVENT 1		6	1	1
+3	EVENT 2		5	1	1
+4	EVENT 3		4	1	1
+5	RUNNING		3	0	0
+Syscall Wait(3), remaining 4 -> Success
+
+
+===== Iteration: 9 =====
+Run 1 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		8	4	4
+2	EVENT 1		7	1	1
+3	EVENT 2		6	1	1
+4	EVENT 3		5	1	1
+5	EVENT 3		4	1	1
+Expired -> Success
+
+
+===== Iteration: 10 =====
+Run 1 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		13	4	9
+2	EVENT 1		12	1	1
+3	EVENT 2		11	1	1
+4	EVENT 3		10	1	1
+5	EVENT 3		9	1	1
+Expired -> Success
+
+
+===== Iteration: 11 =====
+Run 1 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		18	4	14
+2	EVENT 1		17	1	1
+3	EVENT 2		16	1	1
+4	EVENT 3		15	1	1
+5	EVENT 3		14	1	1
+Syscall Signal(1), remaining 4 -> Success
+
+
+===== Iteration: 12 =====
+Run 1 for 4 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		19	5	15
+2	READY		18	1	1
+3	EVENT 2		17	1	1
+4	EVENT 3		16	1	1
+5	EVENT 3		15	1	1
+Syscall Sleep(10), remaining 3 -> Success
+
+
+===== Iteration: 13 =====
+Run 2 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		20	6	16
+2	RUNNING		19	1	1
+3	EVENT 2		18	1	1
+4	EVENT 3		17	1	1
+5	EVENT 3		16	1	1
+Syscall Signal(2), remaining 4 -> Success
+
+
+===== Iteration: 14 =====
+Run 2 for 4 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		21	6	16
+2	RUNNING		20	2	2
+3	READY		19	1	1
+4	EVENT 3		18	1	1
+5	EVENT 3		17	1	1
+Syscall Exit, remaining 3 -> Success
+
+
+===== Iteration: 15 =====
+Run 3 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		22	6	16
+3	RUNNING		20	1	1
+4	EVENT 3		19	1	1
+5	EVENT 3		18	1	1
+Syscall Signal(3), remaining 4 -> Success
+
+
+===== Iteration: 16 =====
+Run 3 for 4 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		23	6	16
+3	RUNNING		21	2	2
+4	READY		20	1	1
+5	READY		19	1	1
+Syscall Exit, remaining 3 -> Success
+
+
+===== Iteration: 17 =====
+Run 4 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		24	6	16
+4	RUNNING		21	1	1
+5	READY		20	1	1
+Syscall Exit, remaining 4 -> Success
+
+
+===== Iteration: 18 =====
+Run 5 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		25	6	16
+5	RUNNING		21	1	1
+Syscall Exit, remaining 4 -> Success
+
+
+===== Iteration: 19 =====
+Sleep for 4 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		26	6	16
+
+
+===== Iteration: 20 =====
+Run 1 for 5 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		30	6	16
+Syscall Exit, remaining 4 -> Success
+
+
+===== Iteration: 21 =====
+Done, no more processes
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+
+

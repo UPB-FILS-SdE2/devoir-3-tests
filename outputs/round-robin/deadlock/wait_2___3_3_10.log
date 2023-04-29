@@ -1,0 +1,53 @@
+===== Iteration: 1 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		0	0	0
+Syscall Fork(0), remaining 2 -> Pid(Pid(2))
+
+
+===== Iteration: 2 =====
+Run 2 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	READY		1	1	1
+2	RUNNING		0	0	0
+Expired -> Success
+
+
+===== Iteration: 3 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		4	1	1
+2	READY		3	0	3
+Syscall Sleep(10), remaining 2 -> Success
+
+
+===== Iteration: 4 =====
+Run 2 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		5	2	2
+2	RUNNING		4	0	3
+Syscall Wait(2), remaining 0 -> Success
+
+
+===== Iteration: 5 =====
+Sleep for 7 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		8	2	2
+2	EVENT 2		7	1	6
+
+
+===== Iteration: 6 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		15	2	2
+2	EVENT 2		14	1	6
+Syscall Wait(1), remaining 2 -> Success
+
+
+===== Iteration: 7 =====
+Deadlock, unable to schedule anymore processes
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	EVENT 1		16	3	3
+2	EVENT 2		15	1	6
+
+

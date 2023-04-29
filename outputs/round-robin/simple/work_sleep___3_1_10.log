@@ -1,0 +1,72 @@
+===== Iteration: 1 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		0	0	0
+Expired -> Success
+
+
+===== Iteration: 2 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		3	0	3
+Syscall Sleep(10), remaining 2 -> Success
+
+
+===== Iteration: 3 =====
+Sleep for 10 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		4	1	4
+
+
+===== Iteration: 4 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		14	1	4
+Expired -> Success
+
+
+===== Iteration: 5 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		17	1	7
+Syscall Sleep(10), remaining 2 -> Success
+
+
+===== Iteration: 6 =====
+Sleep for 10 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		18	2	8
+
+
+===== Iteration: 7 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		28	2	8
+Expired -> Success
+
+
+===== Iteration: 8 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		31	2	11
+Syscall Sleep(10), remaining 2 -> Success
+
+
+===== Iteration: 9 =====
+Sleep for 10 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	SLEEP		32	3	12
+
+
+===== Iteration: 10 =====
+Run 1 for 3 slices
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+1	RUNNING		42	3	12
+Syscall Exit, remaining 2 -> Success
+
+
+===== Iteration: 11 =====
+Done, no more processes
+PID	STATE		TOTAL	SYSCALL	EXECUTE
+
+
