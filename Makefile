@@ -27,6 +27,7 @@ round-robin:
 ifndef TEST
 	$(error No test defined)
 endif
+	export TERM=xterm
 	$(call banner,Round Robin Timeslice: 3 Remaining: 1)
 	SCHEDULER=round-robin timeout 5 cargo test $(TEST) -q
 	$(call banner,Round Robin Timeslice: 5 Remaining: 2)
