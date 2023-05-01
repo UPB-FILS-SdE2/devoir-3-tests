@@ -1,5 +1,8 @@
+#[cfg(feature = "cfs")]
 use scheduler::cfs;
+#[cfg(feature = "priority-queue")]
 use scheduler::priority_queue;
+#[cfg(not(any(feature = "priority-queue", feature = "cfs")))]
 use scheduler::round_robin;
 use scheduler::Scheduler;
 
@@ -14,14 +17,14 @@ mod deadlock;
 mod panic;
 mod simple;
 mod wait_and_signal;
+mod worker;
 
 fn write_logs(folder: &str, name: &str, logs: &str) {
-    let scheduler = env::var("SCHEDULER").unwrap();
     let (timeslice, remaining, cpu_slices) = arguments();
-    fs::create_dir_all(format!("../outputs/{scheduler}/{folder}")).unwrap();
+    fs::create_dir_all(format!("../outputs/{SCHEDULER}/{folder}")).unwrap();
     fs::write(
         format!(
-            "../outputs/{scheduler}/{folder}/{name}___{timeslice}_{remaining}_{cpu_slices}.log"
+            "../outputs/{SCHEDULER}/{folder}/{name}___{timeslice}_{remaining}_{cpu_slices}.log"
         ),
         logs,
     )
@@ -29,10 +32,9 @@ fn write_logs(folder: &str, name: &str, logs: &str) {
 }
 
 fn read_logs(folder: &str, name: &str) -> String {
-    let scheduler = env::var("SCHEDULER").unwrap();
     let (timeslice, remaining, cpu_slices) = arguments();
     fs::read_to_string(format!(
-        "../outputs/{scheduler}/{folder}/{name}___{timeslice}_{remaining}_{cpu_slices}.log"
+        "../outputs/{SCHEDULER}/{folder}/{name}___{timeslice}_{remaining}_{cpu_slices}.log"
     ))
     .unwrap()
 }
@@ -67,13 +69,43 @@ fn arguments() -> (usize, usize, usize) {
     (timeslice, remaining, cpu_slices)
 }
 
+#[cfg(feature = "round-robin")]
+static SCHEDULER: &str = "round-robin";
+#[cfg(feature = "round-robin")]
+fn scheduler() -> impl Scheduler {
+    let (timeslice, remaining, cpu_slices) = arguments();
+
+    println!("Timeslice {timeslice}\nRemaining {remaining}\nCPU slices: {cpu_slices}");
+    round_robin(NonZeroUsize::new(timeslice).unwrap(), remaining)
+}
+
+#[cfg(feature = "priority-queue")]
+static SCHEDULER: &str = "priority-queue";
+#[cfg(feature = "priority-queue")]
 fn scheduler() -> impl Scheduler {
     let (timeslice, remaining, cpu_slices) = arguments();
 
     println!("Timeslice {timeslice}\nRemaining {remaining}\nCPU slices: {cpu_slices}");
 
-    match env::var("SCHEDULER").unwrap().as_str() {
-        "round-robin" => round_robin(NonZeroUsize::new(timeslice).unwrap(), remaining),
-        _ => panic!("unknown scheduler"),
-    }
+    priority_queue(NonZeroUsize::new(timeslice).unwrap(), remaining)
+}
+
+#[cfg(feature = "cfs")]
+static SCHEDULER: &str = "cfs";
+#[cfg(feature = "cfs")]
+fn scheduler() -> impl Scheduler {
+    let (timeslice, remaining, cpu_slices) = arguments();
+
+    println!("Timeslice {timeslice}\nRemaining {remaining}\nCPU slices: {cpu_slices}");
+    cfs(NonZeroUsize::new(cpu_slices).unwrap(), remaining)
+}
+
+#[cfg(not(any(feature = "round-robin", feature = "priority-queue", feature = "cfs")))]
+static SCHEDULER: &str = "no-scheduler";
+#[cfg(not(any(feature = "round-robin", feature = "priority-queue", feature = "cfs")))]
+fn scheduler() -> impl Scheduler {
+    let (timeslice, remaining, cpu_slices) = arguments();
+
+    println!("Timeslice {timeslice}\nRemaining {remaining}\nCPU slices: {cpu_slices}");
+    round_robin(NonZeroUsize::new(timeslice).unwrap(), remaining)
 }
