@@ -6,7 +6,7 @@ use super::{run, scheduler};
 
 #[test]
 #[named]
-pub fn worker() {
+pub fn single_worker() {
     let logs = Processor::run(scheduler(), |process| {
         process.fork(
             |process| {
