@@ -93,7 +93,8 @@ pub fn worker_3() {
 
 #[test]
 #[named]
-pub fn worker_spawning() {
+pub fn worker_spawn
+ing() {
     let logs = Processor::run(scheduler(), |process| {
         process.fork(
             |process| {

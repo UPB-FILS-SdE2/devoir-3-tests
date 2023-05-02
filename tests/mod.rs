@@ -17,7 +17,7 @@ mod deadlock;
 mod panic;
 mod simple;
 mod wait_and_signal;
-mod worker;
+mod workers;
 
 fn write_logs(folder: &str, name: &str, logs: &str) {
     let (timeslice, remaining, cpu_slices) = arguments();
