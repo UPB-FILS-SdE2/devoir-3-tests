@@ -16,6 +16,7 @@ install:
 	rm -rf ../outputs
 	cp -r outputs ..
 	rm -rf ../runner/src/tests.rs
+	rm -rf ../runner/src/tests
 	cp -r tests ../runner/src/tests
 
 outputs:
