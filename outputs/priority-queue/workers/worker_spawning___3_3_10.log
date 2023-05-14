@@ -81,7 +81,7 @@ Syscall Fork(5), remaining 0 -> Pid(3)
 Run 3 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	READY		0	28	1	6	
-2	READY		1	27	1	20	
+2	READY		2	27	1	20	
 3	RUNNING		5	0	0	0	
 Expired -> Success
 
@@ -90,7 +90,7 @@ Expired -> Success
 Run 3 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	READY		0	31	1	6	
-2	READY		1	30	1	20	
+2	READY		2	30	1	20	
 3	RUNNING		4	3	0	3	
 Expired -> Success
 
@@ -99,27 +99,26 @@ Expired -> Success
 Run 3 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	READY		0	34	1	6	
-2	READY		1	33	1	20	
+2	READY		2	33	1	20	
 3	RUNNING		3	6	0	6	
 Expired -> Success
 
 
 ===== Iteration: 14 =====
-Run 3 for 3 slices
+Run 2 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	READY		0	37	1	6	
-2	READY		1	36	1	20	
-3	RUNNING		2	9	0	9	
-Expired -> Success
+2	RUNNING		2	36	1	20	
+3	READY		2	9	0	9	
+Syscall Exit, remaining 2 -> Success
 
 
 ===== Iteration: 15 =====
-Run 2 for 3 slices
+Run 3 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	READY		0	40	1	6	
-2	RUNNING		1	39	1	20	
-3	READY		1	12	0	12	
-Syscall Exit, remaining 2 -> Success
+1	READY		0	38	1	6	
+3	RUNNING		2	10	0	9	
+Expired -> Success
 
 
 ===== Iteration: 16 =====

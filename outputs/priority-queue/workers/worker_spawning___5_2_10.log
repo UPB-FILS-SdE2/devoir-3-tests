@@ -57,7 +57,7 @@ Syscall Fork(5), remaining 4 -> Pid(3)
 Run 2 for 4 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	READY		0	26	1	4	
-2	RUNNING		1	25	1	20	
+2	RUNNING		2	25	1	20	
 3	READY		5	0	0	0	
 Syscall Exit, remaining 3 -> Success
 

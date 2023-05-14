@@ -126,52 +126,54 @@ Syscall Signal(2), remaining 2 -> Success
 
 
 ===== Iteration: 14 =====
-Run 3 for 3 slices
+Run 1 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	READY		0	20	5	10	
+1	RUNNING		0	20	5	10	
 2	READY		0	19	2	0	
-3	RUNNING		0	17	1	0	
+3	READY		0	17	1	0	
 4	EVENT 3		0	15	1	0	
 5	EVENT 3		0	13	1	0	
-Syscall Signal(3), remaining 2 -> Success
+Syscall Sleep(10), remaining 2 -> Success
 
 
 ===== Iteration: 15 =====
-Run 4 for 3 slices
+Run 3 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	READY		0	21	5	10	
+1	SLEEP		0	21	6	10	
 2	READY		0	20	2	0	
-3	READY		0	18	2	0	
-4	RUNNING		0	16	1	0	
-5	READY		0	14	1	0	
-Syscall Exit, remaining 2 -> Success
+3	RUNNING		0	18	1	0	
+4	EVENT 3		0	16	1	0	
+5	EVENT 3		0	14	1	0	
+Syscall Signal(3), remaining 2 -> Success
 
 
 ===== Iteration: 16 =====
-Run 5 for 3 slices
+Run 2 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	READY		0	22	5	10	
-2	READY		0	21	2	0	
+1	SLEEP		0	22	6	10	
+2	RUNNING		0	21	2	0	
 3	READY		0	19	2	0	
-5	RUNNING		0	15	1	0	
+4	READY		0	17	1	0	
+5	READY		0	15	1	0	
 Syscall Exit, remaining 2 -> Success
 
 
 ===== Iteration: 17 =====
-Run 1 for 3 slices
+Run 4 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	RUNNING		0	23	5	10	
-2	READY		0	22	2	0	
+1	SLEEP		0	23	6	10	
 3	READY		0	20	2	0	
-Syscall Sleep(10), remaining 2 -> Success
+4	RUNNING		0	18	1	0	
+5	READY		0	16	1	0	
+Syscall Exit, remaining 2 -> Success
 
 
 ===== Iteration: 18 =====
-Run 2 for 3 slices
+Run 5 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	SLEEP		0	24	6	10	
-2	RUNNING		0	23	2	0	
 3	READY		0	21	2	0	
+5	RUNNING		0	17	1	0	
 Syscall Exit, remaining 2 -> Success
 
 
@@ -184,7 +186,7 @@ Syscall Exit, remaining 2 -> Success
 
 
 ===== Iteration: 20 =====
-Sleep for 8 slices
+Sleep for 5 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 1	SLEEP		0	26	6	10	
 
@@ -192,7 +194,7 @@ PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
 ===== Iteration: 21 =====
 Run 1 for 3 slices
 PID	STATE		PRI	TOTAL	SYSCALL	EXECUTE	EXTRA
-1	RUNNING		0	34	6	10	
+1	RUNNING		0	31	6	10	
 Syscall Exit, remaining 2 -> Success
 
 
