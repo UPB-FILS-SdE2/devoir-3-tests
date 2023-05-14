@@ -47,7 +47,7 @@ fn run(folder: &str, name: &str, logs: &[Log]) {
     } else {
         let reference = read_logs(folder, name);
 
-        println!("\nleft = Your Output\nright = Correct Output\n");
+        println!("\nleft = Correct Output\nright = Your Output\n");
         use pretty_assertions::assert_eq;
         assert_eq!(reference, output);
     }
